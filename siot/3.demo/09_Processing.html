@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>10. Processing &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11. 其他软件" href="10_other.html" />
+    <link rel="prev" title="9. Python" href="08_Python.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">客户端连接范例</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_tool_pc.html">1. 常见MQTT客户端（PC端）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_tool_phone.html">2. 常见MQTT客户端（手机端）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Node-RED.html">3. Node-RED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_Mindplus.html">4. Mind plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_mPython.html">5. 掌控板（mPython）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_Arduino.html">6. Arduino</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_microbit.html">7. micro:bit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_Appinventor.html">8. App Inventor2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_Python.html">9. Python</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10. Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#processingmqtt">10.1. Processing的MQTT库简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">10.2. 参考代码</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_other.html">11. 其他软件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4.case/index.html">典型应用案例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.advanced/index.html">高级操作技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6.attach/index.html">附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">客户端连接范例</a> &raquo;</li>
+        
+      <li>10. Processing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/3.demo/09_Processing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="processing">
+<h1>10. Processing<a class="headerlink" href="#processing" title="Permalink to this headline">¶</a></h1>
+<p>Processing是一款专为设计师和艺术家使用的编程语言，由美国麻省理工学院媒体实验室（MIT）美学与运算小组创立的。Processing的出现，被视为艺术设计创作的一场革命。利用Processing，艺术家可以将抽象的数据呈现为生动的视觉形象。它不仅可以生成唯美的图形，还能编写出功能强大的互动艺术作品。</p>
+<ul class="simple">
+<li><p>Processing下载地址：<a class="reference external" href="https://processing.org/">https://processing.org/</a></p></li>
+</ul>
+<div class="section" id="processingmqtt">
+<h2>10.1. Processing的MQTT库简介<a class="headerlink" href="#processingmqtt" title="Permalink to this headline">¶</a></h2>
+<p>Processing是一个开源的编程语言，有很多人为其开发了各种开源的库。借助MQTT库，Processing即可与MQTT服务器进行交互。</p>
+<p>在库文件中查找“MQTT”即可找到。</p>
+<img alt="../_images/09_processing_02.png" src="../_images/09_processing_02.png" />
+<p>Processing的MQTT库全名：MQTT library for Processing based on the Eclipse Paho project</p>
+<p>库的开源地址：<a class="reference external" href="https://github.com/256dpi/processing-mqtt">https://github.com/256dpi/processing-mqtt</a></p>
+<img alt="../_images/09_processing_03.png" src="../_images/09_processing_03.png" />
+</div>
+<div class="section" id="id1">
+<h2>10.2. 参考代码<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import mqtt.*;
+MQTTClient client;
+
+class Adapter implements MQTTListener {
+  void clientConnected() {
+    println(&quot;client connected&quot;);
+    client.subscribe(&quot;xzr/001&quot;);//要订阅的消息名称
+  }
+  void messageReceived(String topic, byte[] payload) {
+    println(&quot;new message: &quot; + topic + &quot; - &quot; + new String(payload));
+  }
+  void connectionLost() {
+    println(&quot;connection lost&quot;);
+  }
+}
+Adapter adapter;
+void setup() {
+  adapter = new Adapter();
+  client = new MQTTClient(this, adapter);
+  client.connect(&quot;mqtt://siot:dfrobot@127.0.0.1&quot;, &quot;processing&quot;);//用户名为siotd；密码为frobot
+}
+void draw() {}
+void keyPressed() {
+  client.publish(&quot;xzr/001&quot;, &quot;world&quot;);//给名称为&quot;xzr/001&quot;的topic发送消息&quot;world&quot;
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="10_other.html" class="btn btn-neutral float-right" title="11. 其他软件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="08_Python.html" class="btn btn-neutral float-left" title="9. Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

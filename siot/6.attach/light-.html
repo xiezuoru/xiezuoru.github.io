@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>掌控板的光线读取功能 &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.demo/index.html">客户端连接范例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4.case/index.html">典型应用案例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.advanced/index.html">高级操作技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>掌控板的光线读取功能</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/6.attach/light-.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>掌控板的光线读取功能<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>我们可利用掌控板自带的光线传感器对环境中的光照强度进行测量。</p>
+<div class="section" id="id2">
+<h2>准备工作<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>（一）硬件准备</p>
+<p>掌控板及其连接线</p>
+<img alt="../_images/light-01.jpg" src="../_images/light-01.jpg" />
+<p>（二）软件准备</p>
+<p>打开mPythonX 0.3.2编写程序</p>
+<img alt="../_images/light-02.jpg" src="../_images/light-02.jpg" />
+</div>
+<div class="section" id="id3">
+<h2>步骤<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>（一）参考程序</p>
+<img alt="../_images/light-03.jpg" src="../_images/light-03.jpg" />
+<p>注意：此处注意下面的图形块的使用方法</p>
+<img alt="../_images/light-04.jpg" src="../_images/light-04.jpg" />
+<p>（二）具体操作</p>
+<p>1.打开mPythonX 0.3.2，连接串口。</p>
+<img alt="../_images/light-05.jpg" src="../_images/light-05.jpg" />
+<p>2.将程序“刷入运行”进行测试，界面右下角显示当前程序的运行进程。</p>
+<img alt="../_images/light-06.jpg" src="../_images/light-06.jpg" />
+<p>（三）运行结果</p>
+<p>1.掌控板屏幕显示当前环境的光线值，数据同步显示在mPythonX 0.3.2中。</p>
+<img alt="../_images/light-07.jpg" src="../_images/light-07.jpg" />
+<img alt="../_images/light-08.jpg" src="../_images/light-08.jpg" />
+</div>
+<div class="section" id="id4">
+<h2>代码<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>代码下载地址：<a class="reference external" href="https://github.com/vvlink/SIoT/blob/master/examples/Python/light.xml">https://github.com/vvlink/SIoT/blob/master/examples/Python/light.xml</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

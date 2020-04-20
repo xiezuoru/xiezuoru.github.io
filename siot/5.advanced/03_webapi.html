@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. WebAPI &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. 扩展插件" href="04_plug-in.html" />
+    <link rel="prev" title="2. 数据导出" href="02_dataexport.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.demo/index.html">客户端连接范例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4.case/index.html">典型应用案例</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">高级操作技巧</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_safe.html">1. 安全设置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_dataexport.html">2. 数据导出</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. WebAPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#api">3.1. API列表：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">3.2. 返回数据的通用格式说明：</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04_plug-in.html">4. 扩展插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_q_a.html">5. 常见问题解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6.attach/index.html">附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">高级操作技巧</a> &raquo;</li>
+        
+      <li>3. WebAPI</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/5.advanced/03_webapi.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="webapi">
+<h1>3. WebAPI<a class="headerlink" href="#webapi" title="Permalink to this headline">¶</a></h1>
+<p>SIoT提供了一系列的WebAPI，供用户调用。一些不支持MQTT的编程语言，如VB、S4A等，可以通过HTTP的形式和SIoT进行互动。</p>
+<p>需要强调的是，HTTP的请求/应答方式的会话都是客户端发起的，缺乏服务器通知客户端的机制，如果要获取服务器信息，客户端应用需要不断地轮询服务器。这也就是在物联网方面，MQTT比HTTP更受欢迎的原因。</p>
+<div class="section" id="api">
+<h2>3.1. API列表：<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>这里的账号密码为默认的siot和dfrobot，如果您曾修改过账号或密码，这里的iname或ipwd也需要相应的修改。</dt><dd><blockquote>
+<div><ul class="simple">
+<li><p>发布消息</p></li>
+</ul>
+<p><a class="reference external" href="Http:/">Http:/</a>/[SIoT的IP]:8080/publish?topic=xzr/001&amp;msg=on&amp;iname=siot&amp;ipwd=dfrobot</p>
+<p><strong>说明</strong>：向topicid（主题）“xzr/001”发送内容为“on”的消息，其中“xzr”是项目id，“001”是设备id。</p>
+<p>返回数据：{&quot;code&quot;:1,&quot;msg&quot;:&quot;数据已发送&quot;}</p>
+<ul class="simple">
+<li><p>获取最新数据</p></li>
+</ul>
+<p><a class="reference external" href="Http:/">Http:/</a>/[SIoT的IP]:8080/lastmessage?topic=xzr/001&amp;iname=siot&amp;ipwd=dfrobot</p>
+<p><strong>说明</strong>：获取topicid（主题）“xzr/001”的最新一条消息</p>
+<p>返回数据：{&quot;code&quot;:1,&quot;data&quot;:[{&quot;ID&quot;:27,&quot;Topic&quot;:&quot;xzr/001&quot;,&quot;Content&quot;:&quot;11&quot;,&quot;Created&quot;:&quot;2019-06-06 11:55:39&quot;}],&quot;msg&quot;:&quot;成功&quot;}</p>
+<ul class="simple">
+<li><p>获取消息列表</p></li>
+</ul>
+<p><a class="reference external" href="Http:/">Http:/</a>/[SIoT的IP]:8080/messages?topic=xzr/001&amp;iname=siot&amp;ipwd=dfrobot&amp;pnum=1&amp;psize=10&amp;begin=2019-04-04 00:00:00&amp;end=2019-07-01 00:00:00</p>
+<p><a class="reference external" href="Http:/">Http:/</a>/[SIoT的IP]:8080/messages?topic=xzr/001&amp;iname=siot&amp;ipwd=dfrobot&amp;pnum=1&amp;psize=10&amp;begin=2019-04-04&amp;end=2019-07-01</p>
+<p><strong>说明</strong>：获取topicid（主题）“xzr/001”从“2019-04-04”到“2019-07-01”的数据。其中时间可以省略。</p>
+<p>返回数据：{&quot;code&quot;:1,&quot;data&quot;:[{&quot;ID&quot;:26,&quot;Topic&quot;:&quot;xzr/001&quot;,&quot;Content&quot;:&quot;10&quot;,&quot;Created&quot;:&quot;2019-06-06 11:55:33&quot;},{&quot;ID&quot;:27,&quot;Topic&quot;:&quot;xzr/001&quot;,&quot;Content&quot;:&quot;11&quot;,&quot;Created&quot;:&quot;2019-06-06 11:55:39&quot;}],&quot;msg&quot;:&quot;成功&quot;}</p>
+<ul class="simple">
+<li><p>清除消息</p></li>
+</ul>
+<p><a class="reference external" href="Http:/">Http:/</a>/[SIoT的IP]:8080/clearmsg?topic=xzr/001&amp;iname=siot&amp;ipwd=dfrobot</p>
+<p><strong>说明</strong>：删除topicid（主题）“xzr/001”的所有消息</p>
+</div></blockquote>
+<p>返回数据：{&quot;code&quot;:1,&quot;data&quot;:4,&quot;msg&quot;:&quot;成功清空消息&quot;}</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>获取项目列表</p></li>
+</ul>
+<p><a class="reference external" href="Http:/">Http:/</a>/[SIoT的IP]:8080/projects?iname=siot&amp;ipwd=dfrobot</p>
+<p><strong>说明</strong>：</p>
+<p>返回数据：&quot;code&quot;:1,&quot;data&quot;:[{&quot;ID&quot;:&quot;DFRobot&quot;,&quot;Description&quot;:&quot;一个项目中包含多个设备t&quot;,&quot;Created&quot;:1556265411},{&quot;ID&quot;:&quot;abc&quot;,&quot;Description&quot;:&quot;&quot;,&quot;Created&quot;:1556939389},{&quot;ID&quot;:&quot;xzr&quot;,&quot;Description&quot;:&quot;&quot;,&quot;Created&quot;:1556941184}],&quot;msg&quot;:&quot;成功&quot;}</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>更新项目</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="Http:/">Http:/</a>/[SIoT的IP]:8080/updateprj?pid=xzr&amp;iname=siot&amp;ipwd=dfrobot&amp;desc=科学测量</p>
+<p><strong>说明</strong>：将名称为“xzr”的项目的备注修改为“科学测量”</p>
+</div></blockquote>
+<p>返回数据： {&quot;code&quot;:1,&quot;msg&quot;:&quot;成功&quot;}</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>获取设备列表</p></li>
+</ul>
+<p><a class="reference external" href="Http:/">Http:/</a>/[SIoT的IP]:8080/devices?pid=xzr&amp;iname=siot&amp;ipwd=dfrobot</p>
+<p><strong>说明</strong>：返回项目名称为“xzr”的设备列表。</p>
+<ul class="simple">
+<li><p>更新设备</p></li>
+</ul>
+<p><a class="reference external" href="Http:/">Http:/</a>/[SIoT的IP]:8080/updatedev?pid=xzr&amp;dname=001&amp;iname=siot&amp;ipwd=dfrobot&amp;desc=台灯控制</p>
+<p><strong>说明</strong>：将项目名称为“xzr”，设备名称为“001”的设备，备注修改为“台灯控制”（发现BUG）</p>
+<p>{&quot;code&quot;:1,&quot;msg&quot;:&quot;成功&quot;}</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>删除设备</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="Http:/">Http:/</a>/[SIoT的IP]:8080/deldev?topic=xzr/001&amp;iname=siot&amp;ipwd=dfrobot</p>
+<p><strong>说明</strong>：</p>
+<p>返回数据：{&quot;code&quot;:1,&quot;msg&quot;:&quot;删除成功&quot;}</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>3.2. 返回数据的通用格式说明：<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>{</dt><dd><p>code = 1,
+message = &quot;&quot;,
+data = {}</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>}</dt><dd><p><strong>说明</strong>：code等于1，表示成功。data中返回列表信息。</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="04_plug-in.html" class="btn btn-neutral float-right" title="4. 扩展插件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="02_dataexport.html" class="btn btn-neutral float-left" title="2. 数据导出" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

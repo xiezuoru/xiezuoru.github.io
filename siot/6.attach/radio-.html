@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>掌控板的无线广播功能详解 &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.demo/index.html">客户端连接范例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4.case/index.html">典型应用案例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.advanced/index.html">高级操作技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>掌控板的无线广播功能详解</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/6.attach/radio-.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>掌控板的无线广播功能详解<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>掌控板支持无线广播功能，不需要连接Wi-Fi，多块掌控板之间可以通讯。</p>
+<div class="section" id="id2">
+<h2>具体步骤<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>1.准备好掌控板及数据连接线，打开mPythonX 0.3.2，连接串口。</p>
+<p>2.完成其中一个掌控板程序代码，图形代码如下。</p>
+<img alt="../_images/radio-01.png" src="../_images/radio-01.png" />
+<p>提示：</p>
+<p>（1）其余掌控板代码程序与上图类似。</p>
+<p>（2）多个掌控板的无线广播频道需一致。</p>
+<p>3.刷入程序，运行效果如下。</p>
+<p>（1）两块掌控板分别刷入程序</p>
+<img alt="../_images/radio-02.jpg" src="../_images/radio-02.jpg" />
+<p>（2）当按掌控板1的A键时，掌控板2的灯亮起，同时屏幕显示“收到a”</p>
+<img alt="../_images/radio-03.jpg" src="../_images/radio-03.jpg" />
+<p>（3）当按掌控板2的A键时，掌控板1的灯亮起，同时屏幕显示“收到b”</p>
+<img alt="../_images/radio-04.jpg" src="../_images/radio-04.jpg" />
+<p>（4）当按掌控板的B键时，该掌控板的灯熄灭，如此可实现多块掌控板之间的通讯</p>
+</div>
+<div class="section" id="id3">
+<h2>示例代码<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/vvlink/SIoT/blob/master/examples/Python/radio.xml">https://github.com/vvlink/SIoT/blob/master/examples/Python/radio.xml</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

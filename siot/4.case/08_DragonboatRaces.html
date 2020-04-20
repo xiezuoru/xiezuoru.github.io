@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. 互动媒体之龙舟竞赛 &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. 互动媒体之弹幕效果演示" href="09_subtitles.html" />
+    <link rel="prev" title="7. 互动媒体之智慧农场" href="06_smartfarm.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.demo/index.html">客户端连接范例</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">典型应用案例</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_temperature.html">1. 科学探究之一天的温度分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_heat_radiation.html">2. 科学探究之热辐射实验</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_measure.html">3. 科学探究之通用定时测量工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_dataview.html">4. 互动媒体之物联网数据呈现</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_Remotecontrol.html">5. 智能家居之远程控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_play.html">6. 互动游戏之联机足球对战</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_smartfarm.html">7. 互动媒体之智慧农场</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8. 互动媒体之龙舟竞赛</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">8.1. 程序描述：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">8.2. 原理介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">8.3. 准备工作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">8.4. 操作步骤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">8.5. 参考代码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">8.6. 拓展思考</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="09_subtitles.html">9. 互动媒体之弹幕效果演示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_vvboard.html">10. 科学探究：“观察”食盐在水中的溶解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00_caselist.html">11. 更多案例（网络收集）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../5.advanced/index.html">高级操作技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6.attach/index.html">附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">典型应用案例</a> &raquo;</li>
+        
+      <li>8. 互动媒体之龙舟竞赛</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/4.case/08_DragonboatRaces.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>8. 互动媒体之龙舟竞赛<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>基于SIoT和和掌控板，可以设计一些多人竞赛的游戏，然后借助Mind+实时呈现出来。</p>
+<p><strong>案例作者：张喻，林淼焱</strong></p>
+<div class="section" id="id2">
+<h2>8.1. 程序描述：<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>1.有两个玩家：玩家1和玩家2，每个玩家拥有一块掌控版用以摇晃</p>
+<p>2.游戏开始，摇晃掌控版，让舞台上的龙舟开始移动</p>
+<p>3.可以添加多支龙舟进行比拼</p>
+</div></blockquote>
+<img alt="../_images/Longzhou-01.png" src="../_images/Longzhou-01.png" />
+</div>
+<div class="section" id="id3">
+<h2>8.2. 原理介绍<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>本案例分为两个终端，分别为划手1（player1）和划手2（player2）。player1端和player2端通过连接同一物联网平台MQTT（siot）进行数据的交换，从而实现联机比拼的功能。</p>
+</div>
+<div class="section" id="id4">
+<h2>8.3. 准备工作<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>1.运行SIoT</p>
+<img alt="../_images/Mind+drag-01.PNG" src="../_images/Mind+drag-01.PNG" />
+<img alt="../_images/Mind+drag-09.PNG" src="../_images/Mind+drag-09.PNG" />
+<p>2.将上图中的IP地址输入网页，如下图：</p>
+<img alt="../_images/Mind+drag-10.PNG" src="../_images/Mind+drag-10.PNG" />
+<p>3.运行Mind+1.5.5及以上的版本</p>
+<blockquote>
+<div><p>mind+下载地址：<a class="reference external" href="http://mindplus.cc">http://mindplus.cc</a></p>
+</div></blockquote>
+<p><strong>说明</strong>：本教程使用的是Mind+1.5.5版本软件</p>
+</div>
+<div class="section" id="id5">
+<h2>8.4. 操作步骤<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>1.运行mind+</p>
+<p>选择右上角“实时模式”，点击左下角“扩展”，添加”网络服务”中的“MQTT”；</p>
+<img alt="../_images/Mind+danmu-01.png" src="../_images/Mind+danmu-01.png" />
+<img alt="../_images/Mind+danmu-02.png" src="../_images/Mind+danmu-02.png" />
+<p>2.编写代码</p>
+<p>1）在终端1（代码1）的“背景”中写如下程序；</p>
+<p><strong>说明</strong>：本操作是将掌控板设备与服务器建立连接，在服务器上能够实时反馈数据。</p>
+<img alt="../_images/Mind+drag-04.PNG" src="../_images/Mind+drag-04.PNG" />
+<p>并修改MQTT服务器相关的参数；</p>
+<blockquote>
+<div><p><strong>说明</strong>：Topic设置为“xzr/001”（项目ID/名称）</p>
+</div></blockquote>
+<img alt="../_images/Mind+drag-05.PNG" src="../_images/Mind+drag-05.PNG" />
+<p>2）在终端2（代码2）中创建两个角色，分别为龙舟1和龙舟2；</p>
+<img alt="../_images/Mind+drag-06.PNG" src="../_images/Mind+drag-06.PNG" />
+<p>3）点击角色1（龙舟1），写如下代码；</p>
+<img alt="../_images/Mind+drag-07.PNG" src="../_images/Mind+drag-07.PNG" />
+<p>4）点击角色2（龙舟2），写如下代码；</p>
+<img alt="../_images/Mind+drag-08.PNG" src="../_images/Mind+drag-08.PNG" />
+</div>
+<div class="section" id="id6">
+<h2>8.5. 参考代码<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>代码下载地址：<a class="reference external" href="https://github.com/vvlink/SIoT/tree/master/examples/Mind%2B">https://github.com/vvlink/SIoT/tree/master/examples/Mind%2B</a></p>
+<p>演示视频地址：<a class="reference external" href="https://github.com/linmiaoyan/Lins-video/blob/master/Mind%2B%E9%BE%99%E8%88%9F%E7%AB%9E%E8%B5%9B.mp4">https://github.com/linmiaoyan/Lins-video/blob/master/Mind%2B%E9%BE%99%E8%88%9F%E7%AB%9E%E8%B5%9B.mp4</a></p>
+</div>
+<div class="section" id="id7">
+<h2>8.6. 拓展思考<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>利用这一作品原理，可以制作一些集体互动的大型游戏。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="09_subtitles.html" class="btn btn-neutral float-right" title="9. 互动媒体之弹幕效果演示" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="06_smartfarm.html" class="btn btn-neutral float-left" title="7. 互动媒体之智慧农场" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

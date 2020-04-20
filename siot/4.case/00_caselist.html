@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>11. 更多案例（网络收集） &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="高级操作技巧" href="../5.advanced/index.html" />
+    <link rel="prev" title="10. 科学探究：“观察”食盐在水中的溶解" href="10_vvboard.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.demo/index.html">客户端连接范例</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">典型应用案例</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_temperature.html">1. 科学探究之一天的温度分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_heat_radiation.html">2. 科学探究之热辐射实验</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_measure.html">3. 科学探究之通用定时测量工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_dataview.html">4. 互动媒体之物联网数据呈现</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_Remotecontrol.html">5. 智能家居之远程控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_play.html">6. 互动游戏之联机足球对战</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_smartfarm.html">7. 互动媒体之智慧农场</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_DragonboatRaces.html">8. 互动媒体之龙舟竞赛</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_subtitles.html">9. 互动媒体之弹幕效果演示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_vvboard.html">10. 科学探究：“观察”食盐在水中的溶解</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">11. 更多案例（网络收集）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">11.1. 案例：基于掌控板测加速值的科学探究</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#siot">11.2. 案例：掌控板结合SIOT测量光线值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">11.3. 案例：远程控制掌控板显示城市气象信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">11.4. 案例：掌控板+SIOT实现远程开关灯</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#micro-bit-siot">11.5. 案例：micro:bit+SIoT做热辐射实验</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">11.6. 案例：心率监测--科学助跑</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../5.advanced/index.html">高级操作技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6.attach/index.html">附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">典型应用案例</a> &raquo;</li>
+        
+      <li>11. 更多案例（网络收集）</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/4.case/00_caselist.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>11. 更多案例（网络收集）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>自“虚谷物联”项目发布之后，引发很多教育创客的关注，涌现出一批精彩的案例。</p>
+</div></blockquote>
+<div class="section" id="id2">
+<h2>11.1. 案例：基于掌控板测加速值的科学探究<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>1.描述。</dt><dd><p>虽然可以通过坐电梯的实验来理解超重、失重的知识，但是看不到数据总觉得很抽象。今天，小麦化身一名物理教师，通过物联网SIOT，分享一节科学探究物理课。</p>
+</dd>
+</dl>
+<p>2.作者
+rzegkly（汝州二高）</p>
+<p>3.链接。
+<a class="reference external" href="http://mc.dfrobot.com.cn/thread-289931-1-1.html">http://mc.dfrobot.com.cn/thread-289931-1-1.html</a></p>
+</div>
+<div class="section" id="siot">
+<h2>11.2. 案例：掌控板结合SIOT测量光线值<a class="headerlink" href="#siot" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>1.描述。</dt><dd><p>掌控板板载光线传感器负责收集光线值，转发MQTT服务器，通过Web查看消息然后导出数据。</p>
+</dd>
+</dl>
+<p>2.作者
+rzegkly（汝州二高）</p>
+<p>3.链接。
+<a class="reference external" href="http://mc.dfrobot.com.cn/thread-288715-1-1.html">http://mc.dfrobot.com.cn/thread-288715-1-1.html</a></p>
+</div>
+<div class="section" id="id3">
+<h2>11.3. 案例：远程控制掌控板显示城市气象信息<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>1.描述。</dt><dd><p>在Web页面输入城市名称，掌控板从心知气象网站读取该城市气象信息，然后显示在OLED屏幕上。</p>
+</dd>
+</dl>
+<p>2.作者
+北山脚（浦江中学，方春林）</p>
+<p>3.链接。
+<a class="reference external" href="http://mc.dfrobot.com.cn/thread-289850-1-1.html">http://mc.dfrobot.com.cn/thread-289850-1-1.html</a></p>
+</div>
+<div class="section" id="id4">
+<h2>11.4. 案例：掌控板+SIOT实现远程开关灯<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>1.描述。</dt><dd><p>在Web页面发送on或off命令，远程控制掌控板的LED。</p>
+</dd>
+</dl>
+<p>2.作者
+rzegkly（汝州二高）</p>
+<p>3.链接。
+<a class="reference external" href="http://mc.dfrobot.com.cn/thread-281136-1-1.html">http://mc.dfrobot.com.cn/thread-281136-1-1.html</a></p>
+</div>
+<div class="section" id="micro-bit-siot">
+<h2>11.5. 案例：micro:bit+SIoT做热辐射实验<a class="headerlink" href="#micro-bit-siot" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>1.描述。</dt><dd><p>教育科学出版社小学《科学》教材五年级上有个章节，内容是《怎样得到更多的光和热》，利用micro:bit+SIoT，以物联网采集的方式来做这个实验。</p>
+</dd>
+</dl>
+<p>2.作者
+digi_cow（宁波，狄勇）</p>
+<p>3.链接。
+<a class="reference external" href="http://mc.dfrobot.com.cn/thread-289794-1-1.html">http://mc.dfrobot.com.cn/thread-289794-1-1.html</a></p>
+</div>
+<div class="section" id="id5">
+<h2>11.6. 案例：心率监测--科学助跑<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>1.描述。</dt><dd><p>当看到自己的心率值出现在屏幕上，顿时感到很兴奋。现在很多智能手环/手表都可以用来监测人体的生理信息，如心率，血压，步数，睡眠质量等，帮助大家关注并了解自己的身体状况。</p>
+</dd>
+</dl>
+<p>2.作者
+youjingisland</p>
+<p>3.链接。
+<a class="reference external" href="http://mc.dfrobot.com.cn/thread-297794-1-1.html">http://mc.dfrobot.com.cn/thread-297794-1-1.html</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../5.advanced/index.html" class="btn btn-neutral float-right" title="高级操作技巧" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="10_vvboard.html" class="btn btn-neutral float-left" title="10. 科学探究：“观察”食盐在水中的溶解" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. 常见MQTT客户端（手机端） &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Node-RED" href="02_Node-RED.html" />
+    <link rel="prev" title="1. 常见MQTT客户端（PC端）" href="01_tool_pc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">客户端连接范例</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_tool_pc.html">1. 常见MQTT客户端（PC端）</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. 常见MQTT客户端（手机端）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mqttool-iphone">2.1. MQTTool（iPhone手机）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-client">2.2. MQTT Client（安卓手机）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_Node-RED.html">3. Node-RED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_Mindplus.html">4. Mind plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_mPython.html">5. 掌控板（mPython）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_Arduino.html">6. Arduino</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_microbit.html">7. micro:bit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_Appinventor.html">8. App Inventor2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_Python.html">9. Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_Processing.html">10. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_other.html">11. 其他软件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4.case/index.html">典型应用案例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.advanced/index.html">高级操作技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6.attach/index.html">附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">客户端连接范例</a> &raquo;</li>
+        
+      <li>2. 常见MQTT客户端（手机端）</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/3.demo/01_tool_phone.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mqtt">
+<h1>2. 常见MQTT客户端（手机端）<a class="headerlink" href="#mqtt" title="Permalink to this headline">¶</a></h1>
+<p>手机俨然成为人们最熟悉的智能终端了。借助一些MQTT客户端App，手机可以连接SIoT，成为一个物联网终端。本文分别介绍运行于iPhone和安卓系统的两款App。有App Inventor2基础的用户，可以自行开发一个。</p>
+<div class="section" id="mqttool-iphone">
+<h2>2.1. MQTTool（iPhone手机）<a class="headerlink" href="#mqttool-iphone" title="Permalink to this headline">¶</a></h2>
+<p>MQTTool是运行在iPhone上的MQTT客户端软件，也是一个MQTT测试工具。通过App Store即可安装MQTTool。</p>
+<img alt="../_images/01-mqtt-01.png" src="../_images/01-mqtt-01.png" />
+<p>首先要确认计算机和手机连接的是同一个无线路由器，或者在同一个局域网中，相互之间可以访问。输入计算机的IP地址和用户名、密码，点击“Connenct”即可连接。</p>
+<ul class="simple">
+<li><p>图中的username应填写siot</p></li>
+</ul>
+<img alt="../_images/01-mqtt-02.png" src="../_images/01-mqtt-02.png" />
+<p>点击“Stats”，可以查看服务器的连接状态。</p>
+<img alt="../_images/01-mqtt-03.png" src="../_images/01-mqtt-03.png" />
+<p>在“Topic”（主题）中输入“xzr/001”（表示项目id为xzr，设备id为001），点击“Publish”（发送）即可发送消息。在SIoT的Web页面可以看到这一消息。</p>
+<img alt="../_images/01-mqtt-04.png" src="../_images/01-mqtt-04.png" />
+<p>同样，在Web端给Topic“xzr/001”发送消息，手机端即可收到信息，在“Subscribe”（订阅）。</p>
+<p>多个手机同时连接这个MQTT服务器，只要Topic相同，相互之间都能收到。</p>
+</div>
+<div class="section" id="mqtt-client">
+<h2>2.2. MQTT Client（安卓手机）<a class="headerlink" href="#mqtt-client" title="Permalink to this headline">¶</a></h2>
+<p>MQTT Client 是一款安卓环境的MQTT客户端软件，也是一个MQTT测试工具。可以在http://www.mdpda.com/app/apk7623192.html 下载。</p>
+<img alt="../_images/01-mqtt-client-01-icon.jpg" src="../_images/01-mqtt-client-01-icon.jpg" />
+<p>首先要确认计算机和手机连接的是同一个无线路由器，或者在同一个局域网中，相互之间可以访问。</p>
+<p>打开软件，点击右上角的Settings，点击Server。</p>
+<img alt="../_images/01-mqtt-client-02-settings.jpg" src="../_images/01-mqtt-client-02-settings.jpg" />
+<ul class="simple">
+<li><p>在URL处输入计算机的IP地址，后面跟上“：8080”</p></li>
+<li><p>Port填写1883</p></li>
+<li><p>Username填写用户名（siot）</p></li>
+<li><p>Password填写密码（dfrobot）</p></li>
+<li><p>其他内容保持默认就可以了</p></li>
+</ul>
+<p>发送消息需要在主页面点击右下角的紫色按钮，进入发送消息界面。</p>
+<img alt="../_images/01-mqtt-client-03-publish.jpg" src="../_images/01-mqtt-client-03-publish.jpg" />
+<p>在“Topic”（主题）中输入“xzr/001”（表示项目id为xzr，设备id为001），在“Message”（消息）中输入想要发送的消息内容，点击“PUBLISH”（发送）即可发送消息。在SIoT的Web页面可以看到这一消息。</p>
+<img alt="../_images/01-mqtt-client-06-msg.PNG" src="../_images/01-mqtt-client-06-msg.PNG" />
+<p>同样，在Web端给Topic“xzr/001”发送消息，手机端即可收到信息，这一消息在主页面可以订阅。</p>
+<img alt="../_images/01-mqtt-client-07-send.PNG" src="../_images/01-mqtt-client-07-send.PNG" />
+<p>在主页面下方输入想要订阅的主题“xzr/001”，就可以获取实时消息了。</p>
+<img alt="../_images/01-mqtt-client-04-main-subscribe.jpg" src="../_images/01-mqtt-client-04-main-subscribe.jpg" />
+<p>想要看具体的消息收发详情，可以点击相应的栏目查看，例如点击上图中的“xzr/001”就可以出现如下画面。</p>
+<img alt="../_images/01-mqtt-client-05-received-msg.jpg" src="../_images/01-mqtt-client-05-received-msg.jpg" />
+<p>多个手机同时连接这个MQTT服务器，只要Topic相同，相互之间都能收到。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="02_Node-RED.html" class="btn btn-neutral float-right" title="3. Node-RED" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01_tool_pc.html" class="btn btn-neutral float-left" title="1. 常见MQTT客户端（PC端）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

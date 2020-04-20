@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. OneNET的触发器设计 &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. MQTT信息的发送和订阅（mPythonX）" href="MQTT.html" />
+    <link rel="prev" title="1. siot的Python库" href="siotlib.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.demo/index.html">客户端连接范例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4.case/index.html">典型应用案例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.advanced/index.html">高级操作技巧</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">附录</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="siotlib.html">1. siot的Python库</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. OneNET的触发器设计</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.1. 具体步骤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.2. 示例代码</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MQTT.html">3. MQTT信息的发送和订阅（mPythonX）</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">附录</a> &raquo;</li>
+        
+      <li>2. OneNET的触发器设计</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/6.attach/trigger.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="onenet">
+<h1>2. OneNET的触发器设计<a class="headerlink" href="#onenet" title="Permalink to this headline">¶</a></h1>
+<p>掌控板可以将数据传递至OneNET物联网平台，我们可以在OneNET物联网平台根据一定的条件设置触发器。</p>
+<div class="section" id="id1">
+<h2>2.1. 具体步骤<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>1.准备好掌控板及数据连接线，打开mPythonX 0.3.2，连接串口。</p>
+<p>2.在OneNET物联网平台使用手机号进行注册、登陆。OneNET地址https://open.iot.10086.cn/</p>
+<p>3.在OneNET“开发者中心”中添加产品与设备，可以通过开发者文档了解具体步骤。</p>
+<p>开发者文档地址为https://open.iot.10086.cn/doc/book/easy-manual/product&amp;device/product-create.html</p>
+<p>提示：协议选择MQTT。</p>
+<p>记录所需信息。</p>
+<img alt="../_images/trigger-01.png" src="../_images/trigger-01.png" />
+<img alt="../_images/trigger-02.png" src="../_images/trigger-02.png" />
+<p>添加数据流模板，其名称需与图形代码中传递的数据名称相同。</p>
+<img alt="../_images/trigger-03.png" src="../_images/trigger-03.png" />
+<p>4.完成程序代码。图形代码如下。</p>
+<img alt="../_images/trigger-04.png" src="../_images/trigger-04.png" />
+<p>提示：服务器地址为默认值，无需更改。</p>
+<p>5.在OneNET中查看设备状态及数据，设备状态应为“在线”，可以清晰地看到读取的数值了。</p>
+<img alt="../_images/trigger-05.png" src="../_images/trigger-05.png" />
+<p>6.在OneNET中点击触发器管理，按照操作提示添加一个触发器。</p>
+<img alt="../_images/trigger-06.png" src="../_images/trigger-06.png" />
+<p>效果如图。</p>
+<img alt="../_images/trigger-07.png" src="../_images/trigger-07.png" />
+<img alt="../_images/trigger-08.png" src="../_images/trigger-08.png" />
+</div>
+<div class="section" id="id2">
+<h2>2.2. 示例代码<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/vvlink/SIoT/blob/master/examples/Python/trigger.xml">https://github.com/vvlink/SIoT/blob/master/examples/Python/trigger.xml</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MQTT.html" class="btn btn-neutral float-right" title="3. MQTT信息的发送和订阅（mPythonX）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="siotlib.html" class="btn btn-neutral float-left" title="1. siot的Python库" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

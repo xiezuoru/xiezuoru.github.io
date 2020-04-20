@@ -1,0 +1,538 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. 掌控板（mPython） &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Arduino" href="05_Arduino.html" />
+    <link rel="prev" title="4. Mind plus" href="03_Mindplus.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">客户端连接范例</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_tool_pc.html">1. 常见MQTT客户端（PC端）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_tool_phone.html">2. 常见MQTT客户端（手机端）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_Node-RED.html">3. Node-RED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_Mindplus.html">4. Mind plus</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5. 掌控板（mPython）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">5.1. 掌控板功能介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.2. 掌控板的编程工具介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-mind">5.3. 掌控板的MQTT代码（基于Mind+）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-mixly">5.4. 掌控板的MQTT代码（基于Mixly）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-bxy">5.5. 掌控板的MQTT代码（基于BXY）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt-mpythonx">5.6. 掌控板的MQTT代码（基于mPythonX）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05_Arduino.html">6. Arduino</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_microbit.html">7. micro:bit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_Appinventor.html">8. App Inventor2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_Python.html">9. Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_Processing.html">10. Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_other.html">11. 其他软件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4.case/index.html">典型应用案例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.advanced/index.html">高级操作技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6.attach/index.html">附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">客户端连接范例</a> &raquo;</li>
+        
+      <li>5. 掌控板（mPython）</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/3.demo/04_mPython.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mpython">
+<h1>5. 掌控板（mPython）<a class="headerlink" href="#mpython" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>掌控板由虚谷计划组委会推出，是国内第一款专为编程教育而设计的开源硬件！为普及创客教育而生，反应一线Python编程教学需求，迎接普通高中新课改。
+掌控板委托创客教育知名品牌Labplus盛思设计、制造与发行，历经十几轮次研究讨论，三次升级改版，是国内第一款专为编程教育而设计的开源硬件。</p>
+</div></blockquote>
+<div class="section" id="id1">
+<h2>5.1. 掌控板功能介绍<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>掌控板上集成了OLED显示屏、RGB灯、加速度计、麦克风、光线传感器、蜂鸣器、按键开关、触摸开关、金手指外部拓展接口，支持图形化及python代码编程，可实现智能机器人、创客智造作品等智能控制类应用。利用掌控板上丰富的传感器，结合它小尺寸的特点还可以做很多智能穿戴、电子饰品等各种DIY作品应用。</p>
+<p>因为掌控板使用著名物联网芯片ESP32，所以掌控板是“虚谷物联”项目的最佳选择。</p>
+<p>掌控板地址：<a class="reference external" href="https://mpython.cn/mPython/index">https://mpython.cn/mPython/index</a></p>
+</div>
+<div class="section" id="id2">
+<h2>5.2. 掌控板的编程工具介绍<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>掌控板的编程工具很多，常用的有：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>mPython X</p></li>
+<li><p>Mind +</p></li>
+<li><p>Mixly</p></li>
+<li><p>BXY</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="mqtt-mind">
+<h2>5.3. 掌控板的MQTT代码（基于Mind+）<a class="headerlink" href="#mqtt-mind" title="Permalink to this headline">¶</a></h2>
+<p>Mind+是一款基于Scratch3.0开发的青少年编程软件，让大家轻松体验创造的乐趣。</p>
+<p>网站：<a class="reference external" href="http://mindplus.cc">http://mindplus.cc</a></p>
+<p><strong>代码说明：</strong></p>
+<p>这段代码可以提供消息的发送和订阅功能，MQTT服务器既可以用EasyIot物联网，也可以用SIoT。
+要实现功能，我们只需修改“发送消息”截图中的红框区域，设定相应的数据即可。</p>
+<p>如果在左侧的图形化代码中没有看到蓝色的MQTT模块，请点击左下角的拓展，在主控板中选择掌控版，随后在网络服务中选择wifi和mqtt模块。</p>
+<p>代码下载链接：<strong>mind+中自带范例</strong></p>
+<p><strong>发送消息</strong></p>
+<img alt="../_images/Mind_Mqtt_02.png" src="../_images/Mind_Mqtt_02.png" />
+<p><strong>订阅消息</strong></p>
+<img alt="../_images/Mind_Mqtt_01.png" src="../_images/Mind_Mqtt_01.png" />
+</div>
+<div class="section" id="mqtt-mixly">
+<h2>5.4. 掌控板的MQTT代码（基于Mixly）<a class="headerlink" href="#mqtt-mixly" title="Permalink to this headline">¶</a></h2>
+<p>Mixly是在北京师范大学教育学部创客教育实验室负责人傅骞老师的带领下，由其团队开发的一款国内自主研发，且免费开源的图形化编程工具。</p>
+<p>Mixly支持包括arduino、ESP32、ESP8266、micro:bit在内的绝大多数创客类硬件。</p>
+<p>软件下载及准备工作 ： <a class="reference external" href="https://mixly.readthedocs.io/zh_CN/latest/basic/01.Installation-for-Mixly.html">https://mixly.readthedocs.io/zh_CN/latest/basic/01.Installation-for-Mixly.html</a></p>
+<p><strong>编程准备</strong></p>
+<p>下载并解压好Mixly之后，在软件右下角板卡选择中选择Arduino HandBit ，该板卡即为掌控板。</p>
+<p>右上角选择 <em>高级试图</em>。</p>
+<img alt="../_images/Mixly.png" src="../_images/Mixly.png" />
+<p><strong>连接到MQTT服务器</strong></p>
+<p>修改WiFi信息， 填写MQTT服务器信息，程序如下图所示：</p>
+<img alt="../_images/Mixly_connect_MQTT.png" src="../_images/Mixly_connect_MQTT.png" />
+<p>点击软件右下角 上传 ，上传程序到掌控板。</p>
+<p>在上传过程中，如果在编译信息框中看到如下信息，则需要按住掌控板的A键才能上传。（老版本掌控板有此问题，新版本可以直接上传）</p>
+<img alt="../_images/Mixly_MQTT_upload.png" src="../_images/Mixly_MQTT_upload.png" />
+<p>上传成功后，打开串口监视器，可以看到如下信息，说明掌控板连接网络正常，首先是连接wifi正常，掌控板得到IP地址，然后是连接MQTT服务器正常。</p>
+<img alt="../_images/Mixly_connected_MQTT.png" src="../_images/Mixly_connected_MQTT.png" />
+<p><strong>MQTT发送消息</strong></p>
+<p>当某事件发生时，发送消息到某个主题。</p>
+<img alt="../_images/Mixly_MQTT_publish.png" src="../_images/Mixly_MQTT_publish.png" />
+<p>程序上传之后，按下掌控板上的A键，在网页端可以收到消息，如下图所示。</p>
+<img alt="../_images/Mixly_MQTT_publish_result.png" src="../_images/Mixly_MQTT_publish_result.png" />
+<p><strong>MQTT订阅消息</strong></p>
+<p>当从某个主题接收到消息时，打印该消息。</p>
+<img alt="../_images/Mixly_MQTT_Subscribe.png" src="../_images/Mixly_MQTT_Subscribe.png" />
+<p>通过siot网页发送消息，可以在mixly的串口监视器中查看到接收到的值。</p>
+<img alt="../_images/Mixly_MQTT_Subscribe_result.png" src="../_images/Mixly_MQTT_Subscribe_result.png" />
+</div>
+<div class="section" id="mqtt-bxy">
+<h2>5.5. 掌控板的MQTT代码（基于BXY）<a class="headerlink" href="#mqtt-bxy" title="Permalink to this headline">¶</a></h2>
+<p>BXY是一款运行于Windows平台的MicroPython编程IDE，界面简洁，操作便利。BXY是浙教版普通高中信息技术教材的为众多micro:bit和掌控板爱好者提供了一个简洁实用的平台。</p>
+<p>下载地址：<a class="reference external" href="http://docs.dfrobot.com.cn/bxy/">http://docs.dfrobot.com.cn/bxy/</a></p>
+<p><strong>代码说明：</strong></p>
+<p>这个实验需要2个掌控板，一个发布光线数据一个订阅光线数据，MQTT服务器既可以用EasyIot物联网，也可以用SIoT。</p>
+<p><strong>注意</strong>：使用BXY下载下面的代码，还需要另外添加一个库文件Iot.py。本代码已经整合在BXY的范例中，将BXY升级到最新即可看到。</p>
+<p>代码下载链接：<a class="reference external" href="https://github.com/vvlink/SIoT/tree/master/examples/%E6%8E%8C%E6%8E%A7%E6%9D%BF%E4%BB%A3%E7%A0%81/Bxy">https://github.com/vvlink/SIoT/tree/master/examples/%E6%8E%8C%E6%8E%A7%E6%9D%BF%E4%BB%A3%E7%A0%81/Bxy</a></p>
+<p><strong>发送消息</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 功能：发布光线数据</span>
+<span class="kn">from</span> <span class="nn">mpython</span> <span class="k">import</span> <span class="n">light</span>
+<span class="kn">from</span> <span class="nn">Iot</span> <span class="k">import</span> <span class="n">Iot</span>
+<span class="kn">from</span> <span class="nn">umqtt.simple</span> <span class="k">import</span> <span class="n">MQTTClient</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Timer</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">network</span>
+
+<span class="n">WIFI_SSID</span> <span class="o">=</span> <span class="s1">&#39;yourSSID&#39;</span><span class="c1">#替换成你的WIFI热点名称</span>
+<span class="n">WIFI_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;yourPASSWD&#39;</span><span class="c1">#替换成你的WIFI热点密码</span>
+
+<span class="n">IOT_SERVER</span> <span class="o">=</span> <span class="s2">&quot;server address&quot;</span> <span class="c1">#EASYIOT的服务器为iot.dfrobot.com.cn；Siot地址为用户搭建的服务器的ip地址，例如：192.168.0.100</span>
+<span class="n">IOT_PORT</span> <span class="o">=</span> <span class="mi">1883</span>
+<span class="n">IOT_ClientID</span> <span class="o">=</span> <span class="s2">&quot;your ClientID&quot;</span><span class="c1">#替换成你的ClientID，可为空</span>
+<span class="n">IOT_UserName</span> <span class="o">=</span> <span class="s2">&quot;your UserName&quot;</span><span class="c1">#替换成你的UserName</span>
+<span class="n">IOT_PassWord</span> <span class="o">=</span> <span class="s2">&quot;your PassWord&quot;</span><span class="c1">#替换成你的PassWord</span>
+<span class="n">IOT_pubTopic</span> <span class="o">=</span> <span class="s1">&#39;your PubTopic&#39;</span> <span class="c1">#如果是siot，自定义的topic中需要添加&quot;/&quot;，例如:&quot;abc/abc&quot;</span>
+
+<span class="n">myIot</span> <span class="o">=</span> <span class="n">Iot</span><span class="p">(</span><span class="n">IOT_SERVER</span><span class="p">,</span> <span class="n">IOT_UserName</span><span class="p">,</span> <span class="n">IOT_ClientID</span><span class="p">,</span> <span class="n">IOT_PassWord</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MQTTClient</span><span class="p">(</span><span class="n">myIot</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span> <span class="n">myIot</span><span class="o">.</span><span class="n">mqttserver</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">IOT_PORT</span><span class="p">,</span> <span class="n">user</span> <span class="o">=</span> <span class="n">myIot</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">myIot</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+
+<span class="n">tim1</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">connectWIFI</span><span class="p">():</span>
+  <span class="n">station</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
+  <span class="n">station</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">station</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">WIFI_SSID</span><span class="p">,</span><span class="n">WIFI_PASSWORD</span><span class="p">)</span>
+  <span class="k">while</span> <span class="n">station</span><span class="o">.</span><span class="n">isconnected</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="k">pass</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connection successful&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">station</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">restart</span><span class="p">():</span>
+  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+  <span class="n">machine</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">check_msg</span><span class="p">()</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s2">&quot;light&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">light</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">IOT_pubTopic</span><span class="p">,</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+    <span class="n">lastTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+  <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">tim1</span><span class="o">.</span><span class="n">deinit</span><span class="p">()</span>
+    <span class="n">restart</span><span class="p">()</span>
+
+<span class="n">connectWIFI</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="n">tim1</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="n">check</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+  <span class="k">pass</span>
+</pre></div>
+</div>
+<p><strong>订阅消息</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 功能：订阅光线数据</span>
+<span class="kn">from</span> <span class="nn">mpython</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Iot</span> <span class="k">import</span> <span class="n">Iot</span>
+<span class="kn">from</span> <span class="nn">umqtt.simple</span> <span class="k">import</span> <span class="n">MQTTClient</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Timer</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Pin</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">network</span>
+
+<span class="n">WIFI_SSID</span> <span class="o">=</span> <span class="s1">&#39;yourSSID&#39;</span><span class="c1">#替换成你的WIFI热点名称</span>
+<span class="n">WIFI_PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;yourPASSWD&#39;</span><span class="c1">#替换成你的WIFI热点密码</span>
+
+<span class="n">IOT_SERVER</span> <span class="o">=</span> <span class="s2">&quot;server address&quot;</span> <span class="c1">#EASYIOT的服务器为iot.dfrobot.com.cn；Siot地址为用户搭建的服务器的ip地址，例如：192.168.0.100</span>
+<span class="n">IOT_PORT</span> <span class="o">=</span> <span class="mi">1883</span>
+<span class="n">IOT_ClientID</span> <span class="o">=</span> <span class="s2">&quot;your ClientID&quot;</span><span class="c1">#替换成你的ClientID，可为空</span>
+<span class="n">IOT_UserName</span> <span class="o">=</span> <span class="s2">&quot;your UserName&quot;</span><span class="c1">#替换成你的UserName</span>
+<span class="n">IOT_PassWord</span> <span class="o">=</span> <span class="s2">&quot;your PassWord&quot;</span><span class="c1">#替换成你的PassWord</span>
+<span class="n">IOT_subTopic</span> <span class="o">=</span> <span class="s1">&#39;your SubTopic&#39;</span> <span class="c1">#如果是siot，自定义的topic中需要添加&quot;/&quot;，例如:&quot;abc/abc&quot;</span>
+
+<span class="n">myIot</span> <span class="o">=</span> <span class="n">Iot</span><span class="p">(</span><span class="n">IOT_SERVER</span><span class="p">,</span> <span class="n">IOT_UserName</span><span class="p">,</span> <span class="n">IOT_ClientID</span><span class="p">,</span> <span class="n">IOT_PassWord</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MQTTClient</span><span class="p">(</span><span class="n">myIot</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span> <span class="n">myIot</span><span class="o">.</span><span class="n">mqttserver</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">IOT_PORT</span><span class="p">,</span> <span class="n">user</span> <span class="o">=</span> <span class="n">myIot</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">myIot</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+
+<span class="n">tim1</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">connectWIFI</span><span class="p">():</span>
+  <span class="n">station</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">WLAN</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">STA_IF</span><span class="p">)</span>
+  <span class="n">station</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">station</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">WIFI_SSID</span><span class="p">,</span><span class="n">WIFI_PASSWORD</span><span class="p">)</span>
+  <span class="k">while</span> <span class="n">station</span><span class="o">.</span><span class="n">isconnected</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="k">pass</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connection successful&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">station</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">sub_cb</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="n">msg</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">((</span><span class="n">topic</span><span class="p">,</span><span class="n">msg</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">topic</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;light&#39;</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;msg=</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+      <span class="n">light</span><span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="p">)[</span><span class="s2">&quot;light&quot;</span><span class="p">]</span>
+      <span class="n">oled</span><span class="o">.</span><span class="n">DispChar</span><span class="p">(</span><span class="s2">&quot;接收到对方光强度&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+      <span class="n">oled</span><span class="o">.</span><span class="n">DispChar</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="nb">str</span><span class="p">(</span><span class="n">light</span><span class="p">),</span><span class="mi">64</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+      <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+      <span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+      <span class="n">v</span><span class="o">=</span><span class="n">light</span><span class="o">//</span><span class="mi">16</span>
+      <span class="n">rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+      <span class="n">rgb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+      <span class="n">rgb</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+      <span class="n">rgb</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error msg:</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">msg</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;other topic=</span><span class="si">%s</span><span class="s2"> msg=</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="n">msg</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">restart</span><span class="p">():</span>
+  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+  <span class="n">machine</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">check_msg</span><span class="p">()</span>
+  <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">tim1</span><span class="o">.</span><span class="n">deinit</span><span class="p">()</span>
+    <span class="n">restart</span><span class="p">()</span>
+
+<span class="n">oled</span><span class="o">.</span><span class="n">DispChar</span><span class="p">(</span><span class="s2">&quot;正在连接网络...&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">connectWIFI</span><span class="p">()</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">set_callback</span><span class="p">(</span><span class="n">sub_cb</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">IOT_subTopic</span><span class="p">)</span>
+
+<span class="n">tim1</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span><span class="n">callback</span><span class="o">=</span><span class="n">check</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+  <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mqtt-mpythonx">
+<h2>5.6. 掌控板的MQTT代码（基于mPythonX）<a class="headerlink" href="#mqtt-mpythonx" title="Permalink to this headline">¶</a></h2>
+<p>图形化代码拖入后无法正常显示，请先检查左边控件栏中，物联网箭头下是否有MQTT模块，如无该模块请检查软件版本。</p>
+<p><strong>注意：因为MicroPython的MQTT库（simple.py）的缺陷，我们发现如果SIoT运行在Windows系统上，在mPythonX的发送消息语句后加上延时，将会导致一定时间后消息发送不成功！在MQTT库未升级之前，请使用定时器来发送消息。</strong></p>
+<p>代码下载地址：<a class="reference external" href="https://github.com/vvlink/SIoT/tree/master/examples/%E6%8E%8C%E6%8E%A7%E6%9D%BF%E4%BB%A3%E7%A0%81/mPythonX/%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF">https://github.com/vvlink/SIoT/tree/master/examples/%E6%8E%8C%E6%8E%A7%E6%9D%BF%E4%BB%A3%E7%A0%81/mPythonX/%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF</a></p>
+<p><strong>发送消息</strong></p>
+<img alt="../_images/mpythonx-mqtt-01.png" src="../_images/mpythonx-mqtt-01.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpython</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">network</span>
+<span class="kn">from</span> <span class="nn">umqtt.simple</span> <span class="k">import</span> <span class="n">MQTTClient</span>
+
+<span class="n">my_wifi</span> <span class="o">=</span> <span class="n">wifi</span><span class="p">()</span>
+<span class="n">my_wifi</span><span class="o">.</span><span class="n">connectWiFi</span><span class="p">(</span><span class="s2">&quot;makerspace&quot;</span><span class="p">,</span> <span class="s2">&quot;m@kersp@ce&quot;</span><span class="p">)</span>
+
+<span class="n">mqtt</span> <span class="o">=</span> <span class="n">MQTTClient</span><span class="p">(</span><span class="s2">&quot;zhangkong&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.135&quot;</span><span class="p">,</span> <span class="mi">1883</span><span class="p">,</span> <span class="s2">&quot;siot&quot;</span><span class="p">,</span> <span class="s2">&quot;dfrobot&quot;</span><span class="p">,</span> <span class="n">keepalive</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">mqtt</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connected&#39;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Disconnected&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">on_button_a_down</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+    <span class="n">mqtt</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;mpythonx/001&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">DispChar</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">on_button_b_down</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+    <span class="n">mqtt</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;mpythonx/001&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">DispChar</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">button_a</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">on_button_a_down</span><span class="p">)</span>
+
+<span class="n">button_b</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">Pin</span><span class="o">.</span><span class="n">IRQ_FALLING</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">on_button_b_down</span><span class="p">)</span>
+
+
+<span class="n">oled</span><span class="o">.</span><span class="n">DispChar</span><span class="p">(</span><span class="n">my_wifi</span><span class="o">.</span><span class="n">sta</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>订阅消息</strong></p>
+<img alt="../_images/04_mpythonx_02.png" src="../_images/04_mpythonx_02.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpython</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">network</span>
+<span class="kn">from</span> <span class="nn">umqtt.simple</span> <span class="k">import</span> <span class="n">MQTTClient</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="k">import</span> <span class="n">Timer</span>
+<span class="kn">import</span> <span class="nn">ubinascii</span>
+
+<span class="n">my_wifi</span> <span class="o">=</span> <span class="n">wifi</span><span class="p">()</span>
+<span class="n">my_wifi</span><span class="o">.</span><span class="n">connectWiFi</span><span class="p">(</span><span class="s2">&quot;makerspace&quot;</span><span class="p">,</span> <span class="s2">&quot;m@kersp@ce&quot;</span><span class="p">)</span>
+
+<span class="n">mqtt</span> <span class="o">=</span> <span class="n">MQTTClient</span><span class="p">(</span><span class="s2">&quot;zhangkongban&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.135&quot;</span><span class="p">,</span> <span class="mi">1883</span><span class="p">,</span> <span class="s2">&quot;siot&quot;</span><span class="p">,</span> <span class="s2">&quot;dfrobot&quot;</span><span class="p">,</span> <span class="n">keepalive</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">mqtt</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connected&#39;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Disconnected&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">mqtt_topic_6d707974686f6e2f303031</span><span class="p">(</span><span class="n">_msg</span><span class="p">):</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">fill_rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">DispChar</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="n">_msg</span><span class="p">)),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">mqtt_callback</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">topic</span> <span class="o">=</span> <span class="n">topic</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+        <span class="n">_msg</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+        <span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;mqtt_topic_&#39;</span> <span class="o">+</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">ubinascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">topic</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;(&quot;&#39;</span> <span class="o">+</span> <span class="n">_msg</span> <span class="o">+</span> <span class="s1">&#39;&quot;)&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span> <span class="nb">print</span><span class="p">((</span><span class="n">topic</span><span class="p">,</span> <span class="n">msg</span><span class="p">))</span>
+
+<span class="n">mqtt</span><span class="o">.</span><span class="n">set_callback</span><span class="p">(</span><span class="n">mqtt_callback</span><span class="p">)</span>
+
+<span class="n">mqtt</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s2">&quot;mpython/001&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">timer14_tick</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+    <span class="n">mqtt</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span>
+
+<span class="n">tim14</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">tim14</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">timer14_tick</span><span class="p">)</span>
+
+
+<span class="n">mqtt</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s2">&quot;mpython/001&quot;</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">mqtt</span><span class="o">.</span><span class="n">wait_msg</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="05_Arduino.html" class="btn btn-neutral float-right" title="6. Arduino" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="03_Mindplus.html" class="btn btn-neutral float-left" title="4. Mind plus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. 科学探究之通用定时测量工具 &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. 互动媒体之物联网数据呈现" href="03_dataview.html" />
+    <link rel="prev" title="2. 科学探究之热辐射实验" href="01_heat_radiation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.demo/index.html">客户端连接范例</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">典型应用案例</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_temperature.html">1. 科学探究之一天的温度分布</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_heat_radiation.html">2. 科学探究之热辐射实验</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. 科学探究之通用定时测量工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1. 案例描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.2. 准备工作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.3. 使用步骤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.4. 其他说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.5. 代码分享</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_dataview.html">4. 互动媒体之物联网数据呈现</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_Remotecontrol.html">5. 智能家居之远程控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_play.html">6. 互动游戏之联机足球对战</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_smartfarm.html">7. 互动媒体之智慧农场</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_DragonboatRaces.html">8. 互动媒体之龙舟竞赛</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_subtitles.html">9. 互动媒体之弹幕效果演示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_vvboard.html">10. 科学探究：“观察”食盐在水中的溶解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00_caselist.html">11. 更多案例（网络收集）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../5.advanced/index.html">高级操作技巧</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6.attach/index.html">附录</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">典型应用案例</a> &raquo;</li>
+        
+      <li>3. 科学探究之通用定时测量工具</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/4.case/02_measure.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>3. 科学探究之通用定时测量工具<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>一位做科学教育的朋友，听说虚谷物联项目后，非要我现场演示一番。演示完后，又提出需求，说科学老师不会写代码，能不能提供一个写好代码的通用系统，能够实现自动采集的功能。</p>
+<p>认真想了想，我认为这个要求貌似并不过分。因为科学采集无非就是那几个常见的传感器。除了DH11以外，与科学实验相关的大部分传感器都是通用的模拟量传感器。我可以在代码中确定某一个特定的引脚，使用的时候就往这个引脚接传感器就行了。</p>
+<p><strong>案例作者：谢作如，浙江省温州中学</strong></p>
+<div class="section" id="id2">
+<h2>3.1. 案例描述<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>这是一个通用的物联网数据采集工具，基于掌控板和SIoT服务器程序。使用者只需将代码做简单的参数配置，如服务器IP、Wi-Fi的ssid和密码之类，然后下载程序即可采集数据。</p>
+<p>本程序默认采集P1引脚，借助IO扩展板，掌控板能够使用绝大多数的Arduino模拟传感器。</p>
+</div>
+<div class="section" id="id3">
+<h2>3.2. 准备工作<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>1.硬件准备</p>
+<p>需要掌控板、相关扩展板和传感器，及其连接线。要测量什么就找什么传感器。</p>
+<p><a class="reference external" href="http://www.dfrobot.com.cn/category-223.html">http://www.dfrobot.com.cn/category-223.html</a></p>
+<img alt="http://ws.dfrobot.com.cn/FlcVBmFcuHE5Lu3YS2kYUdbKLTDr" src="http://ws.dfrobot.com.cn/FlcVBmFcuHE5Lu3YS2kYUdbKLTDr" />
+<p>DF的这个扩展板（micro:IO-BOX 电机驱动扩展板）特别好用，自带了一个可充电的CR123A锂电池。
+http://www.dfrobot.com.cn/goods-1923.html</p>
+<p>2.软件准备</p>
+<p>1)搭建SIoT服务器</p>
+<p>直接双击点击与系统匹配的SIoT运行文件，屏幕会弹出一个黑色的CMD窗口，在配置中请不要关闭它。</p>
+<img alt="../_images/02_run_02.png" src="../_images/02_run_02.png" />
+<p>2)修改mPythonX代码</p>
+<p>代码用mPythonX编写，要根据具体情况修改代码中的服务器IP、Wi-Fi的ssid和密码等信息。</p>
+<img alt="../_images/01_code1.png" src="../_images/01_code1.png" />
+<img alt="../_images/01_code2.png" src="../_images/01_code2.png" />
+<p><strong>代码解释</strong></p>
+<p>我设定的Topicid（主题）是“stem/p1”，表示传感器要接到P1。
+按下A按键开始工作，每隔2秒采集一次；按下B键则停止采集。</p>
+</div>
+<div class="section" id="id4">
+<h2>3.3. 使用步骤<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>1.采集数据</p>
+<p>接上电源后，掌控板的显示屏上会先出现IP地址，表示连上了Wi-Fi。然后显示“连接MQTT服务器成功”。</p>
+<p>按下A键，掌控板开始工作了。如果发送消息成功，显示屏最下面一行会出现数字。</p>
+<img alt="../_images/01_mpython.jpeg" src="../_images/01_mpython.jpeg" />
+<p>这个图里，我还没有插入传感器啊。</p>
+<p>DF的这个扩展板（micro:IO-BOX 电机驱动扩展板）特别好用，自带了一个可充电的CR123A锂电池。这个图里，我还没有插入传感器啊。</p>
+<p>2.查看数据</p>
+<p>输入http://127.0.0.1:8080，在网页中找到stem项目的p1主题，就可以看到一个图表，直观显示数据。</p>
+<img alt="../_images/01_dataview1.png" src="../_images/01_dataview1.png" />
+<p>3.导出数据</p>
+<p>这些数据都可以通过这个网页导出为xls文件。</p>
+<img alt="../_images/01_dataview2.png" src="../_images/01_dataview2.png" />
+</div>
+<div class="section" id="id5">
+<h2>3.4. 其他说明<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>1.一般来说，掌控板和电脑连接Wi-Fi，IP地址是不会变化的，我常常使用手机开热点的形式。</p>
+<p>2.如果要采集的数据时间间隔很多，一秒钟要很多次的那种，请先合并在一个json中，再提交。</p>
+</div>
+<div class="section" id="id6">
+<h2>3.5. 代码分享<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>代码下载地址：<a class="reference external" href="https://github.com/vvlink/SIoT/tree/master/examples/mPythonX">https://github.com/vvlink/SIoT/tree/master/examples/mPythonX</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="03_dataview.html" class="btn btn-neutral float-right" title="4. 互动媒体之物联网数据呈现" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01_heat_radiation.html" class="btn btn-neutral float-left" title="2. 科学探究之热辐射实验" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

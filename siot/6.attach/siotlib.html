@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="go" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="go" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. siot的Python库 &mdash; SIoT使用手册 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. OneNET的触发器设计" href="trigger.html" />
+    <link rel="prev" title="附录" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIoT使用手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1.about/index.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2.setup/index.html">安装和运行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3.demo/index.html">客户端连接范例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4.case/index.html">典型应用案例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5.advanced/index.html">高级操作技巧</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">附录</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. siot的Python库</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1.1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.2. 安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.3. 官方地址</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.4. 使用说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1.5. 代码范例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trigger.html">2. OneNET的触发器设计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MQTT.html">3. MQTT信息的发送和订阅（mPythonX）</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIoT使用手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">附录</a> &raquo;</li>
+        
+      <li>1. siot的Python库</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/6.attach/siotlib.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="siotpython">
+<h1>1. siot的Python库<a class="headerlink" href="#siotpython" title="Permalink to this headline">¶</a></h1>
+<p>SIoT是一款开源的MQTT服务器，siot则是Python和MicroPython的一个库。</p>
+<div class="section" id="id1">
+<h2>1.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>MQTT的库明显不好用，前面要定义一个类，代码还很长，让初学者不知所措。</p>
+<p>siot是虚谷物联团队写的一个Python库。为了让初学者能够写出更加简洁、优雅的Python代码。</p>
+<p>siot库同时支持MicroPython，语法完全一致。</p>
+</div>
+<div class="section" id="id2">
+<h2>1.2. 安装<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>使用pip命令： pip install siot</p>
+<p><strong>注</strong>：虚谷号中已经内置了siot库。</p>
+</div>
+<div class="section" id="id3">
+<h2>1.3. 官方地址<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>GitHub地址：<a class="reference external" href="https://github.com/vvlink/SIoT/tree/master/siot-lib">https://github.com/vvlink/SIoT/tree/master/siot-lib</a></p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>1.4. 使用说明<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>1.导入库</p>
+<p>import siot</p>
+<p>2.连接MQTT服务器</p>
+<p>siot.init(CLIENT_ID, SERVER, user=IOT_UserName, password=IOT_PassWord)</p>
+<p>siot.connect()</p>
+<p>siot.loop()</p>
+<p>3.发送消息</p>
+<p>siot.publish(IOT_pubTopic, &quot;value %d&quot;%tick)</p>
+<p>4.订阅消息</p>
+<p>siot.subscribe(IOT_pubTopic, sub_cb)</p>
+<p>“sub_cb”为回调函数的名称，需要写一个名称为“sub_cb”的函数，带3个参数，其中msg为订阅的消息，为一个元组，属性有topic和payload。如下面的代码。</p>
+<dl class="simple">
+<dt>::</dt><dd><dl class="simple">
+<dt>def sub_cb(client, userdata, msg):</dt><dd><p>print(&quot;nTopic:&quot; + str(msg.topic) + &quot; Message:&quot; + str(msg.payload))</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="id5">
+<h2>1.5. 代码范例<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>1.发送消息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">siot</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">SERVER</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span>            <span class="c1">#MQTT服务器IP</span>
+<span class="n">CLIENT_ID</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>                  <span class="c1">#在SIoT上，CLIENT_ID可以留空</span>
+<span class="n">IOT_pubTopic</span>  <span class="o">=</span> <span class="s1">&#39;xzr/001&#39;</span>       <span class="c1">#“topic”为“项目名称/设备名称”</span>
+<span class="n">IOT_UserName</span> <span class="o">=</span><span class="s1">&#39;siot&#39;</span>            <span class="c1">#用户名</span>
+<span class="n">IOT_PassWord</span> <span class="o">=</span><span class="s1">&#39;dfrobot&#39;</span>         <span class="c1">#密码</span>
+
+<span class="n">siot</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">CLIENT_ID</span><span class="p">,</span> <span class="n">SERVER</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">IOT_UserName</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">IOT_PassWord</span><span class="p">)</span>
+<span class="n">siot</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="n">siot</span><span class="o">.</span><span class="n">loop</span><span class="p">()</span>
+
+<span class="n">tick</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">siot</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">IOT_pubTopic</span><span class="p">,</span> <span class="s2">&quot;value </span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">tick</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>           <span class="c1">#隔1秒发送一次</span>
+        <span class="n">tick</span> <span class="o">=</span> <span class="n">tick</span><span class="o">+</span><span class="mi">1</span>
+<span class="k">except</span><span class="p">:</span>
+   <span class="n">siot</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;disconnect seccused&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>订阅消息：</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">siot</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">SERVER</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span>        <span class="c1">#MQTT服务器IP</span>
+<span class="n">CLIENT_ID</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>              <span class="c1">#在SIoT上，CLIENT_ID可以留空</span>
+<span class="n">IOT_pubTopic</span>  <span class="o">=</span> <span class="s1">&#39;xzr/001&#39;</span>   <span class="c1">#“topic”为“项目名称/设备名称”</span>
+<span class="n">IOT_UserName</span> <span class="o">=</span><span class="s1">&#39;siot&#39;</span>        <span class="c1">#用户名</span>
+<span class="n">IOT_PassWord</span> <span class="o">=</span><span class="s1">&#39;dfrobot&#39;</span>     <span class="c1">#密码</span>
+
+<span class="k">def</span> <span class="nf">sub_cb</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Topic:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">topic</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; Message:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="p">))</span>
+
+<span class="n">siot</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">CLIENT_ID</span><span class="p">,</span> <span class="n">SERVER</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">IOT_UserName</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">IOT_PassWord</span><span class="p">)</span>
+<span class="n">siot</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="n">siot</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">IOT_pubTopic</span><span class="p">,</span> <span class="n">sub_cb</span><span class="p">)</span>
+<span class="n">siot</span><span class="o">.</span><span class="n">loop</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">except</span><span class="p">:</span>
+  <span class="n">siot</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;disconnect seccused&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="trigger.html" class="btn btn-neutral float-right" title="2. OneNET的触发器设计" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="附录" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, VVlink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
