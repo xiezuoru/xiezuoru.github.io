@@ -1,0 +1,120 @@
+
+做一个颜值测试器
+====================================================
+
+案例提供：李琦（诸暨）
+
+虚谷号的优势是能够连接各种常见的电脑外设，如果摄像头、麦克风等。接上摄像头后，自然可以做人工智能中的视觉识别作品了。
+
+------------------------------
+案例描述
+------------------------------
+
+人脸识别系统以人脸识别技术为核心，是一项新兴的生物识别技术，是当今国际科技领域攻关的高精尖技术。它广泛采用区域特征分析算法，融合了计算机图像处理技术与生物统计学原理于一体，利用计算机图像处理技术从视频中提取人像特征点，利用生物统计学的原理进行分析建立数学模型，具有广阔的发展前景。
+
+------------------------------
+原理分析
+------------------------------
+人脸识别技术包含三个部分:
+
+(1)人脸检测
+  面貌检测是指在动态的场景与复杂的背景中判断是否存在面像，并分离出这种面像。
+
+(2)人脸跟踪
+  面貌跟踪是指对被检测到的面貌进行动态目标跟踪。具体采用基于模型的方法或基于运动与模型相结合的方法。此外，利用肤色模型跟踪也不失为一种简单而有效的手段。
+
+(3)人脸比对
+  面貌比对是对被检测到的面貌像进行身份确认或在面像库中进行目标搜索。这实际上就是说，将采样到的面像与库存的面像依次进行比对，并找出最佳的匹配对象。所以，面像的描述决定了面像识别的具体方法与性能。
+
+------------------------------------------------------------
+用摄像头获取颜值的代码实现
+------------------------------------------------------------
+
+1. 基本函数(查找人脸并做出标志)
+
+::
+
+    #注意：haarcascade_frontalface_default.xml要放在同一个文件夹下。
+    def faceDetect(img, face_cascade=cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')):
+        size = img.shape[:2]
+        divisor = 8
+        h, w = size
+        minSize = (w // divisor, h // divisor)
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        faces = face_cascade.detectMultiScale(gray, 1.2, 1, cv2.CASCADE_SCALE_IMAGE, minSize)
+        for (x, y, w, h) in faces:
+            cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        return img, len(faces)
+
+2. 基本函数(将text写到图片上)
+
+::
+
+    def put_Text(cvimg, text, location, size=2):
+        cvimg = cv2.putText(cvimg, text, location, cv2.FONT_HERSHEY_SIMPLEX, size, (51, 102, 255), 3)
+        return cvimg
+
+
+
+3. 核心代码
+
+功能描述：当摄像头前面有障碍（有人），LED亮起，自动拍摄照进行识别。识别结束后，LED熄灭，显示识别结果，图片自动保存，。
+
+装置搭建：红外测障传感器接在D3脚；舵机接到D7；LED接到D13。
+
+其他说明：请设计一张颜值指示表，并测试舵机的指向情况。
+
+::
+
+    from xugu import Pin,Servo
+    p1 = Pin(3, Pin.IN) 
+    led = Pin(13, Pin.OUT) 
+    servo = Servo(7)
+    while True:
+        v1=p1.read_digital() 
+        if v1==1:
+            led.write_digital(1)
+            print("开始测试，请稍候")
+            cap = cv2.VideoCapture(0)
+            ret, frame = cap.read()
+            if ret:
+                frame1, face_num = faceDetect(frame)
+                frame1 = cv2.flip(frame1, 1, dst=None)
+                frame1 = cv2.resize(frame1, (1280, 800), interpolation=cv2.INTER_LINEAR)
+                img64 = cvimg_to_b64(frame1)
+                #获取图片信息
+                res = client.detect(img64, imageType, options)
+                #如果找到人脸信息就读出
+                if (res['error_msg']=="SUCCESS"):
+                    gender = res['result']['face_list'][0]['gender']['type']
+                    age = res['result']['face_list'][0]['age']
+                    beauty = res['result']['face_list'][0]['beauty']
+                    frame1 = put_Text(frame1, str(age), (300, 50))
+                    frame1 = put_Text(frame1, str(gender), (300, 120))
+                    frame1 = put_Text(frame1, str(beauty), (300, 190))
+                    frame1 = put_Text(frame1, "Age:", (50, 50))
+                    frame1 = put_Text(frame1, "Gender:", (50, 120))
+                    frame1 = put_Text(frame1, "Beauty:", (50, 190))
+                    #检测到人脸的图片，保存
+                    cv2.imwrite(str(time.time())+".jpg",frame1)
+                else:
+                    frame1 = put_Text(frame1, "no face", (50, 50))
+                display.clear_output(wait=True)
+                img=frame1[:,:,::-1]
+                plt.imshow(img)
+                plt.axis('off') #不显示坐标
+                plt.show()
+                print("图片已经保存")
+                servo.write_angle(int(beauty*2))
+                led.write_digital(0)
+                time.sleep(10)
+            else:
+                print("没有接摄像头或者摄像头被占用！")
+            cap.release()
+            cv2.destroyAllWindows()
+        time.sleep(0.2)
+
+
+在虚谷号自带的案例中，已经提供了这一摄像头的视觉识别案例。
+
+
